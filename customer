@@ -1,0 +1,33 @@
+create table customerLab(
+customerid number(6)primary key,
+fname varchar(10)not null,
+Iname varchar(10),
+salary number(5) constraint ck_salary check(salary>=0 and salary<=20000) ,
+email varchar(30) default'customer@jazanu.edu.sa',
+mobile number9(10)constraint uni_mobNum unique
+);
+alter table customerLab rename column fname to firstname;
+Insert into customerLab values(101,'Ali','Asiri',15000,'ali@gmail.com',0501234567);
+Insert into customerLab values(102,'Nader','Asiri',20000,' ',0501239999);
+Insert into customerLab (customerid,firstname)values(103,'Mohammed');
+select distinct Iname from customerLab;
+select * from customerLab;
+select customerid,firstname from customerLab;
+select * from customerLab where customerid=101;
+select salary from customerLab where Iname='Asiri';
+select salary from customerLab where Iname ='Asiri' and firstname='Nader';
+select distinct Iname from customerLab ;
+select * from customerLab ;
+select customerid , firstname from customerLab;
+select * from customerLab where customerid=101;
+select salary from customerLab where Iname='Asiri';
+select salary from customerLab where Iname='Asiri' and firstname='Nader';
+update customerLab set salary=10000;
+update customerLab set salary=20000 where Iname='Asiri';
+update customerLab set firstname='Mosa' where customerid=103;
+update customerLab set salary=5000,mobile=054785478 where customerid=103;
+update customerLab set salary = 10000 ;
+update customerLab set salary = 20000 where Iname = ' Asiri ' ;
+update customerLab set lname = ' Mosa ' where customerid = 103 ;
+update customerLab set salary=5000,mobile=054785478 where customerid=103;
+delete from customerLab where customerid=101;
